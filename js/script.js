@@ -25,6 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.remove('active');
     });
   }
+
+  // 스킬 레벨 애니메이션
+  const skillLevels = document.querySelectorAll('.skill-level');
+
+  const animateSkills = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const level = entry.target.getAttribute('data-level');
+        setTimeout(() => {
+          entry.target.style.width = level + '%';
+        }, 200); // 약간의 지연을 주어 애니메이션이 보이도록 함
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const skillObserver = new IntersectionObserver(animateSkills, {
+    threshold: 0.5 // 요소가 50% 이상 보일 때 애니메이션 시작
+  });
+
+  skillLevels.forEach(skill => {
+    skillObserver.observe(skill);
+  });
   // 스크롤 애니메이션
   const fadeElems = document.querySelectorAll('.fade-in');
 
