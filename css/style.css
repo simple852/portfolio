@@ -114,63 +114,81 @@ h3 {
     margin-bottom: 1rem;
   }
 
-  #home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-    padding: 2rem;
-  }
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 2rem;
+  background-color: var(--bg-color);
+}
 
-  .home-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
-  }
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  gap: 4rem;
+}
 
-  .profile-image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
+.profile-image-container {
+  flex: 0 0 auto;
+}
 
-  .profile-picture {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--accent-color);
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  }
+.profile-picture {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
 
-  .profile-info {
-    flex: 1;
-  }
+.profile-info {
+  flex: 1;
+}
 
-  #home h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-  }
+#home h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+}
 
-  #home h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    border-bottom: none;
-  }
+#home h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-weight: 400;
+}
 
-  .profile-description {
-    list-style-type: none;
-    padding: 0;
-  }
+.profile-tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-style: italic;
+}
 
-  .profile-description li {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-  }
+.profile-description {
+  list-style-type: none;
+  padding: 0;
+}
 
+.profile-description li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile-description li::before {
+  content: "•";
+  color: var(--accent-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.5em;
+}
   .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -396,12 +414,12 @@ h3 {
     .home-content {
       flex-direction: column;
       text-align: center;
+      gap: 2rem;
     }
 
     .profile-picture {
       width: 200px;
       height: 200px;
-      margin-bottom: 1rem;
     }
 
     #home h1 {
@@ -410,5 +428,9 @@ h3 {
 
     #home h2 {
       font-size: 1.5rem;
+    }
+
+    .profile-description li {
+      justify-content: center;
     }
   }
