@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
   // 다크 모드 토글
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
@@ -10,6 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.classList.toggle('fa-sun');
   });
 
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('active');
+  });
+
+  // 메뉴 항목 클릭 시 메뉴 닫기
+  const menuItems = mainNav.getElementsByTagName('a');
+  for (let item of menuItems) {
+    item.addEventListener('click', () => {
+      mainNav.classList.remove('active');
+    });
+  }
   // 스크롤 애니메이션
   const fadeElems = document.querySelectorAll('.fade-in');
 
